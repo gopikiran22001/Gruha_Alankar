@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(225, 29, 72, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(225, 29, 72, 0.04) 0%, transparent 40%);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0B0C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272A;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3F3F46;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  @apply bg-zinc-900/60 backdrop-blur-md border border-white/5 shadow-premium;
+}
+
+.glass-panel-heavy {
+  @apply bg-zinc-900/85 backdrop-blur-lg border border-white/10 shadow-premium;
+}
+
+.glass-input {
+  @apply bg-zinc-900/40 border border-white/5 rounded-lg px-4 py-2.5 text-text placeholder-zinc-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 backdrop-blur-sm;
+}
+
+.glass-card {
+  @apply bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl hover:border-white/10 transition-all duration-300 hover:shadow-glow;
+}
+
+.glass-card-purple {
+  @apply bg-zinc-950/40 backdrop-blur-sm border border-rose-500/10 rounded-xl hover:border-rose-500/20 transition-all duration-300 hover:shadow-glow;
+}
+
+/* Grid Pattern Overlay */
+.grid-overlay {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+}
+
+/* Scanline Animation for Camera Page (Red laser) */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scan-radar {
+  animation: scan 4s linear infinite;
+  background: linear-gradient(to bottom, transparent, rgba(225, 29, 72, 0.2), transparent);
+}
+
+/* Glowing Border Animation */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.glow-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Custom Typography Helpers */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-rose-400;
+}
+
+.text-gradient-purple {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-rose-400;
+}
